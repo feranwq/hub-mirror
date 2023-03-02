@@ -1,18 +1,16 @@
 # hub-mirror
 
-使用 docker.io 或其他镜像服务来提供（但不限于） gcr.io、k8s.gcr.io、quay.io、ghcr.io 等国外镜像加速下载服务
+使用 docker.io 或其他镜像服务来提供（但不限于） gcr.io、registry.k8s.io、k8s.gcr.io、quay.io、ghcr.io 等国外镜像加速下载服务
 
-> 为减少重复请求，合理利用资源，建议提前在 issues 搜索镜像是否已转换过
-> 
-> 示例：https://github.com/togettoyou/hub-mirror/issues?q=gcr.io%2Fgoogle-samples%2Fmicroservices-demo%2Femailservice%3Av0.3.5
+为减少重复请求，合理利用资源，建议提前在 issues 搜索镜像是否已转换过
+
+示例：[issues搜索gcr.io/google-samples/microservices-demo/emailservice:v0.3.5](https://github.com/togettoyou/hub-mirror/issues?q=gcr.io%2Fgoogle-samples%2Fmicroservices-demo%2Femailservice%3Av0.3.5)
 
 # 原理
 
-https://mp.weixin.qq.com/s/Vt0FRTx1PsoYFdLa0QZzWw
+[无法拉取 gcr.io 镜像？用魔法来打败魔法](https://mp.weixin.qq.com/s/Vt0FRTx1PsoYFdLa0QZzWw)
 
-> 微信公众号：SuperGopher
-> 
-> go、云原生技术、项目问题、联系我 ...... 欢迎关注，来者不拒
+<img src="https://user-images.githubusercontent.com/55381228/221747734-13783ce6-1969-4c10-acd6-833f5046aa85.png" width="300px">
 
 # 开始使用
 
@@ -21,7 +19,7 @@ https://mp.weixin.qq.com/s/Vt0FRTx1PsoYFdLa0QZzWw
 要求：严格按照模板规范提交，参考： [成功案例](https://github.com/togettoyou/hub-mirror/issues/1)
 ，[失败案例](https://github.com/togettoyou/hub-mirror/issues/2)
 
-限制：每次提交最多 11 个镜像地址
+限制：每次提交最多 11 个镜像地址（为啥是11个？因为我的第一次需求刚好要转换11个镜像🤣）
 
 本人 Docker 账号有每日镜像拉取限额，请勿滥用
 
@@ -45,11 +43,13 @@ https://mp.weixin.qq.com/s/Vt0FRTx1PsoYFdLa0QZzWw
         - 阿里云: `registry.cn-hangzhou.aliyuncs.com/xxxxxx`
         - 等其他云...
 
-2. 在 Fork 的项目中开启 `Settings`-`Options`-`Features` 中的 `Issues` 功能
+2. 在 Fork 的项目中开启 `Settings`-`General`-`Features` 中的 `Issues` 功能
 
-3. 在 `Issues`-`Labels` 选择 `New label` 依次添加三个 label ：`hub-mirror`、`success`、`failure`
+3. 在 Fork 的项目中修改 `Settings`-`Actions`-`General` 中的 `Workflow permissions` 为 `Read and write permissions`
 
-4. 在 `Actions` 里选择 `hub-mirror` ，在右边 `···` 菜单里选择 `Enable Workflow`
+4. 在 `Issues`-`Labels` 选择 `New label` 依次添加三个 label ：`hub-mirror`、`success`、`failure`
+
+5. 在 `Actions` 里选择 `hub-mirror` ，在右边 `···` 菜单里选择 `Enable Workflow`
 
 ## 方案三：已有魔法，支持本地使用
 
